@@ -1,0 +1,350 @@
+
+Assignment No:1
+
+A)Create the following tables with the given structures and insert sample data as specified:
+ 
+1)  SALESPEOPLE:
+    Snum int(4)
+    Sname varchar(10)
+    City varchar(10)
+    Comm float(3,2)
+
+--> create table salespeople(
+    snum int(4),
+    sname varchar(10),
+    city varchar(10),
+    comm float(3,2));
+
+   insert into salespeople values (1001,'peel','london', 0.12);
+   insert into salespeople values (1002,'serres','san jose', 0.13);
+   insert into salespeople values (1004,'motika','london', 0.11);
+   insert into salespeople values (1007,'rifkin','barcelona', 0.15);
+   insert into salespeople values (1003,'axelrod','new york', 0.10);
+
+mysql> select * from salespeople;
++------+---------+-----------+------+
+| snum | sname   | city      | comm |
++------+---------+-----------+------+
+| 1001 | peel    | london    | 0.12 |
+| 1002 | serres  | san jose  | 0.13 |
+| 1004 | motika  | london    | 0.11 |
+| 1007 | rifkin  | barcelona | 0.15 |
+| 1003 | axelrod | new york  | 0.10 |
++------+---------+-----------+------+
+5 rows in set (0.014 sec)
+
+--------------------------------------------------------------------------------------------
+                   
+
+
+ 2) CUSTOMERS: 
+    Cnum int(4)
+    Cname varchar(10)
+    City varchar(10)
+    Rating int(4)
+    Snum int(4)
+
+  -->create table customers(
+             cnum int(4),
+             cname varchar(10),
+             city varchar(10),
+             rating int(4),
+             snum int(4)); 
+
+   insert into customers values (2001, 'hoffman', 'london', 100, 1001);
+   insert into customers values (2002, 'giovanni', 'rome', 200, 1003);
+   insert into customers values (2003, 'liu', 'san jose', 200, 1002);
+   insert into customers values (2004, 'grass', 'berlin', 300, 1002);
+   insert into customers values (2006, 'clemens', 'london', 100, 1001);
+   insert into customers values (2008, 'cisneros', 'san jose', 300, 1007);
+   insert into customers values (2007, 'pereira', 'rome', 100, 1004);
+
+
+mysql> select * from customers;
++------+----------+----------+--------+------+
+| Cnum | Cname    | City     | RATING | Snum |
++------+----------+----------+--------+------+
+| 2001 | hoffman  | london   |    100 | 1001 |
+| 2002 | giovanni | rome     |    200 | 1003 |
+| 2003 | liu      | san jose |    200 | 1002 |
+| 2004 | grass    | berlin   |    300 | 1002 |
+| 2006 | clemens  | london   |    100 | 1001 |
+| 2007 | pereira  | rome     |    100 | 1004 |
+| 2008 | cisneros | san jose |    300 | 1007 |
++------+----------+----------+--------+------+
+7 rows in set (0.008 sec)
+-------------------------------------------------------------------------------------
+3)ORDERS:
+  Onum int(4)
+  Amt float(7,2)
+  Odate date
+  Cnum int(4)
+  Snum int(4)
+                     
+-->create table orders(
+   onum int(4),
+   amt float(7,2),
+   odate date,
+   cnum int(4),
+   snum int(4));
+
+insert into orders (onum, amt, odate, cnum, snum) 
+values(3001,18.69,'1990-10-03',2008,1007),
+(3003,767.19,'1990-10-03',2001,1001),
+(3002,1900.10,'1990-10-03',2007,1004),
+(3005,5160.45,'1990-10-03',2003,1002),
+(3006,1098.16,'1990-10-04',2008,1007),
+(3009,1713.23,'1990-10-04',2002,1003),
+(3007,75.75,'1990-10-05',2004,1002),
+(3008,4723.00,'1990-10-05',2006,1001),
+(3010,1309.95,'1990-10-06',2004,1002),
+(3011,9891.88,'1990-10-06',2006,1001);
+
+mysql> select * from orders;
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-04 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-05 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+10 rows in set (0.028 sec)
+
+*************************************************************************************************************************************
+
+Assignment no:2
+
+1) Which field of the Customers table is the primary key?
+--> cnum 
+2) What is the 4th column of the Customers table?
+-->rating
+3) What is another word for row? For column?
+-->    row : Tuple,Record
+    Column : Field,Attribute
+
+4) Why isn’t it possible to see the first five rows of a table? 
+ --> It is not possible to see the first five rows,because a table does not store data in any fixed order.
+
+**************************************************************************************************************************************
+
+Assignment no:3
+Overview of SQL.
+
+1) Does ANSI recognize the data type DATE?
+--->yes,ansi sql recognizes the date data type & it is used to store date values (year,month,day)
+                                         
+2) Which subdivision of SQL is used to insert values in tables:
+-->dml-data manipulation language
+   example: insert- insert into customers values (2001,'hoffman','london',100,1001);
+
+*************************************************************************************************************************************
+
+Assignment no:4
+
+1) Write a select command that produces the order number, amount, and date for all
+rows in the Orders table.
+--> select onum,amt,odate from orders;
+
+mysql> select onum,Amt,Odate from orders;
++------+---------+------------+
+| onum | Amt     | Odate      |
++------+---------+------------+
+| 3001 |   18.69 | 1990-10-03 |
+| 3003 |  767.19 | 1990-10-03 |
+| 3002 | 1900.10 | 1990-10-03 |
+| 3005 | 5160.45 | 1990-10-03 |
+| 3006 | 1098.16 | 1990-10-04 |
+| 3009 | 1713.23 | 1990-10-04 |
+| 3007 |   75.75 | 1990-10-05 |
+| 3008 | 4723.00 | 1990-10-05 |
+| 3010 | 1309.95 | 1990-10-06 |
+| 3011 | 9891.88 | 1990-10-06 |
++------+---------+------------+
+10 rows in set (1.242 sec)
+
+
+
+
+2) Write a query that produces all rows from the Customers table for which the
+salesperson’s number is 1001.
+-->select *from customers where snum = 1001;
+ 
+mysql> select * from customers where snum=1001;
++------+---------+--------+--------+------+
+| Cnum | Cname   | City   | RATING | Snum |
++------+---------+--------+--------+------+
+| 2001 | hoffman | london |    100 | 1001 |
+| 2006 | clemens | london |    100 | 1001 |
++------+---------+--------+--------+------+
+2 rows in set (0.271 sec)
+
+
+3) Write a query that displays the Salespeople table with the columns in the
+following order: city, sname, snum, comm.
+-->select city,sname,snum,comm from salespeople;
+
+mysql> select city,sname,snum,comm from salespeople;
++-----------+---------+------+------+
+| city      | sname   | snum | comm |
++-----------+---------+------+------+
+| london    | peel    | 1001 | 0.12 |
+| san jose  | serres  | 1002 | 0.13 |
+| london    | motika  | 1004 | 0.11 |
+| barcelona | rifkin  | 1007 | 0.15 |
+| new york  | axelrod | 1003 | 0.10 |
++-----------+---------+------+------+
+
+
+4) Write a select command that produces the rating followed by the name of each
+customer in San Jose.
+-->select rating,cname from customers where city = 'san jose';
+
+mysql> select rating,cname from customers where city = 'san jose';
++--------+----------+
+| rating | cname    |
++--------+----------+
+|    200 | liu      |
+|    300 | cisneros |
++--------+----------+
+2 rows in set (0.108 sec)
+
+
+
+5) Write a query that will produce the snum values of all salespeople (suppress the
+duplicates) with orders in the Orders table.
+
+-->select distinct snum from orders;
+
+mysql> select distinct snum from orders;
++------+
+| snum |
++------+
+| 1007 |
+| 1001 |
+| 1004 |
+| 1002 |
+| 1003 |
++------+
+5 rows in set (0.284 sec)
+
+*************************************************************************************************************************************
+
+
+Assignment –5 
+Relational and Logical Operators.
+
+
+1) Write a query that will give you all orders for more than Rs. 1,000.
+-->select * from orders where amt > 1000;
+  
+
+mysql> select * from orders where amt > 1000;
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-04 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+
+2) Write a query that will give you the names and cities of all salespeople in
+London with a commission above .10.
+
+-->select sname,city from salespeople where city ='london' and comm >0.10;
+
+mysql> select sname,city from salespeople where city ='london' and comm >0.10;
++--------+--------+
+| sname  | city   |
++--------+--------+
+| peel   | london |
+| motika | london |
++--------+--------+
+2 rows in set (0.158 sec)
+
+
+
+3) Write a query on the Customers table whose output will exclude all customers
+   with a rating <= 100, unless they are located in Rome.
+
+-->select * from customers where rating > 100 or city = 'rome';
+
+mysql> select * from customers where rating > 100 or city = 'rome';
++------+----------+----------+--------+------+
+| Cnum | Cname    | City     | RATING | Snum |
++------+----------+----------+--------+------+
+| 2002 | giovanni | rome     |    200 | 1003 |
+| 2003 | liu      | san jose |    200 | 1002 |
+| 2004 | grass    | berlin   |    300 | 1002 |
+| 2007 | pereira  | rome     |    100 | 1004 |
+| 2008 | cisneros | san jose |    300 | 1007 |
++------+----------+----------+--------+------+
+5 rows in set (0.062 sec)
+
+
+4) What will be the output from the following query?
+
+Select * from Orders where (amt<1000 OR NOT(odate ='1990-10-03' AND cnum>2003));
+ 
+mysql>  Select * from Orders where (amt<1000 OR NOT(odate ='1990-10-03' AND cnum>2003));
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-04 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-05 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+9 rows in set (0.103 sec)
+
+
+5) What will be the output of the following query?
+ select * from orders where not ((odate = '1990-10-03' or snum > 1006) and amt >= 1500);
+
+mysql>  select * from orders where not ((odate = '1990-10-03' or snum > 1006) and amt >= 1500);
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3006 | 1098.16 | 1990-10-04 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-05 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+ 
+
+
+
+
+6) What is a simpler way to write this query?
+
+  Select snum, sname, city, comm From Salespeople
+  where (comm > .12 OR comm <.14);
+-->1)select snum, sname, city, comm from salespeople where comm > 0.12 or comm < 0.14;
+  2)select snum, sname, city, comm from salespeople; //simpler way
+
+************************************************************************************************************************************
+
+
+
+
+
+                                    
